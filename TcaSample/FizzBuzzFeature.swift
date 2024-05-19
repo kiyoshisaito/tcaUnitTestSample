@@ -84,10 +84,6 @@ struct FizzBuzzFeature {
         }
     }
     
-    @MainActor
-    private func setState(state: inout State, value: String) {
-        state.elseValue = value
-    }
     private func canDivide3(_ value: Int) -> Bool {
         return value % 3 == 0
     }
