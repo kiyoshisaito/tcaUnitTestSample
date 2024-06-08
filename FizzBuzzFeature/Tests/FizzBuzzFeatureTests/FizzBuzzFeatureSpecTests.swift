@@ -7,7 +7,7 @@
 
 import XCTest
 import ComposableArchitecture
-@testable import TcaSample
+@testable import FizzBuzzFeature
 
 
 final class FizzBuzzFeatureSpecTests: XCTestCase {
@@ -56,8 +56,7 @@ final class FizzBuzzFeatureSpecTests: XCTestCase {
             fetch1: { FizzBuzzResult(type: "A") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult) {
+        await store.receive(\.updateStateElseValue) {
             "Fizz が 非表示 になる".it(&$0) { $0.isVisibleFizz = false }
             "Buzz が 非表示 になる".it(&$0) { $0.isVisibleBuzz = false }
             "その他 が AA で表示 される".it(&$0) { $0.elseValue = "AA" }
@@ -69,10 +68,7 @@ final class FizzBuzzFeatureSpecTests: XCTestCase {
             fetch2: { FizzBuzzResult2(type: "X") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult)
-        // 取得2 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult2) {
+        await store.receive(\.updateStateElseValue) {
             "Fizz が 非表示 になる".it(&$0) { $0.isVisibleFizz = false }
             "Buzz が 非表示 になる".it(&$0) { $0.isVisibleBuzz = false }
             "その他 が XX で表示 される".it(&$0) { $0.elseValue = "XX" }
@@ -84,10 +80,7 @@ final class FizzBuzzFeatureSpecTests: XCTestCase {
             fetch2: { FizzBuzzResult2(type: "Y") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult)
-        // 取得2 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult2) {
+        await store.receive(\.updateStateElseValue) {
             "Fizz が 非表示 になる".it(&$0) { $0.isVisibleFizz = false }
             "Buzz が 非表示 になる".it(&$0) { $0.isVisibleBuzz = false }
             "その他 が YY で表示 される".it(&$0) { $0.elseValue = "YY" }
@@ -99,10 +92,7 @@ final class FizzBuzzFeatureSpecTests: XCTestCase {
             fetch2: { FizzBuzzResult2(type: "Z") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult)
-        // 取得2 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult2) {
+        await store.receive(\.updateStateElseValue) {
             "Fizz が 非表示 になる".it(&$0) { $0.isVisibleFizz = false }
             "Buzz が 非表示 になる".it(&$0) { $0.isVisibleBuzz = false }
             "その他 が BB で表示 される".it(&$0) { $0.elseValue = "BB" }
@@ -113,8 +103,7 @@ final class FizzBuzzFeatureSpecTests: XCTestCase {
             fetch1: { FizzBuzzResult(type: "C") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult) {
+        await store.receive(\.updateStateElseValue) {
             "Fizz が 非表示 になる".it(&$0) { $0.isVisibleFizz = false }
             "Buzz が 非表示 になる".it(&$0) { $0.isVisibleBuzz = false }
             "その他 が CC で表示 される".it(&$0) { $0.elseValue = "CC" }

@@ -11,10 +11,15 @@ struct FizzBuzzFeature {
         var elseValue: String = ""
     }
     
+    private struct StateObject {
+        var isVisibleFizz = false
+        var isVisibleBuzz = false
+        var elseValue: String = ""
+    }
+    
     enum Action {
         case fizzBuzzButtonTapped(value: Int)
-        case updateStateByFizzBuzzResult(result: FizzBuzzResult)
-        case updateStateByFizzBuzzResult2(result: FizzBuzzResult2)
+        case updateStateElseValue(result: String)
     }
     
     @Dependency(\.fizzBuzzRepository) private var fizzBuzzRepository
@@ -45,40 +50,29 @@ struct FizzBuzzFeature {
                     return .run { send in
                         let result = await fizzBuzzRepository.fetch1()
                         debugPrint("result is \(result)")
-                        await send(.updateStateByFizzBuzzResult(result: result))
+                        switch result.type {
+                        case "A":
+                            await send(.updateStateElseValue(result: "AA"))
+                        case "B":
+                            let result2 = await fizzBuzzRepository.fetch2()
+                            debugPrint("result is \(result2.type)")
+                            switch result2.type {
+                            case "X":
+                                await send(.updateStateElseValue(result: "XX"))
+                            case "Y":
+                                await send(.updateStateElseValue(result: "YY"))
+                            default:
+                                await send(.updateStateElseValue(result: "BB"))
+                            }
+                        default:
+                            await send(.updateStateElseValue(result: "CC"))
+                        }
                     }
                 }
                 return .none
                 
-            case .updateStateByFizzBuzzResult(let result):
-                switch result.type {
-                case "A":
-                    state.elseValue = "AA"
-                    debugPrint("type is A, state.elseValue is \(state.elseValue)")
-                    break
-                case "B":
-                    return .run { send in
-                        let result2 = await fizzBuzzRepository.fetch2()
-                        await send(.updateStateByFizzBuzzResult2(result: result2))
-                    }
-                default:
-                    state.elseValue = "CC"
-                    break
-                }
-                return .none
-                
-            case .updateStateByFizzBuzzResult2(let result2):
-                switch result2.type {
-                case "X":
-                    state.elseValue = "XX"
-                    break
-                case "Y":
-                    state.elseValue = "YY"
-                    break
-                default:
-                    state.elseValue = "BB"
-                    break
-                }
+            case .updateStateElseValue(let value):
+                state.elseValue = value
                 return .none
             }
         }
@@ -94,6 +88,10 @@ struct FizzBuzzFeature {
     
     private func canDivide3And5(_ value: Int) -> Bool {
         return value % 3 == 0 && value % 5 == 0
+    }
+    
+    public func testMethod() async -> FizzBuzzResult {
+        return await fizzBuzzRepository.fetch1()
     }
 }
 

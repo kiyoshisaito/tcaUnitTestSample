@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D90FF5A92BF21D6100E4A076 /* FizzBuzzFeatureNormalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90FF5A82BF21D6100E4A076 /* FizzBuzzFeatureNormalTests.swift */; };
-		D90FF5AD2BF261ED00E4A076 /* TestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90FF5AC2BF261ED00E4A076 /* TestExtension.swift */; };
-		D90FF5B92BF27BCF00E4A076 /* FizzBuzzFeatureSpecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90FF5B82BF27BCF00E4A076 /* FizzBuzzFeatureSpecTests.swift */; };
 		D9D994AF2BF217B100476BCA /* TcaSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994AE2BF217B100476BCA /* TcaSampleApp.swift */; };
 		D9D994B12BF217B100476BCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994B02BF217B100476BCA /* ContentView.swift */; };
 		D9D994B32BF217B100476BCA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994B22BF217B100476BCA /* Item.swift */; };
@@ -18,9 +15,6 @@
 		D9D994C22BF217B200476BCA /* TcaSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994C12BF217B200476BCA /* TcaSampleTests.swift */; };
 		D9D994CC2BF217B200476BCA /* TcaSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994CB2BF217B200476BCA /* TcaSampleUITests.swift */; };
 		D9D994CE2BF217B200476BCA /* TcaSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994CD2BF217B200476BCA /* TcaSampleUITestsLaunchTests.swift */; };
-		D9D994DC2BF219A500476BCA /* FizzBuzzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994DB2BF219A500476BCA /* FizzBuzzView.swift */; };
-		D9D994DE2BF21B1F00476BCA /* FizzBuzzFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D994DD2BF21B1F00476BCA /* FizzBuzzFeature.swift */; };
-		D9D994E02BF21B5B00476BCA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D9D994DF2BF21B5B00476BCA /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D90FF5A82BF21D6100E4A076 /* FizzBuzzFeatureNormalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzFeatureNormalTests.swift; sourceTree = "<group>"; };
-		D90FF5AC2BF261ED00E4A076 /* TestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtension.swift; sourceTree = "<group>"; };
-		D90FF5B82BF27BCF00E4A076 /* FizzBuzzFeatureSpecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzFeatureSpecTests.swift; sourceTree = "<group>"; };
+		D91FA2102C146CD2006F5DBD /* FizzBuzzFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FizzBuzzFeature; sourceTree = "<group>"; };
 		D9D994AB2BF217B100476BCA /* TcaSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TcaSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D994AE2BF217B100476BCA /* TcaSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcaSampleApp.swift; sourceTree = "<group>"; };
 		D9D994B02BF217B100476BCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,8 +47,6 @@
 		D9D994C72BF217B200476BCA /* TcaSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TcaSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D994CB2BF217B200476BCA /* TcaSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcaSampleUITests.swift; sourceTree = "<group>"; };
 		D9D994CD2BF217B200476BCA /* TcaSampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcaSampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D9D994DB2BF219A500476BCA /* FizzBuzzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzView.swift; sourceTree = "<group>"; };
-		D9D994DD2BF21B1F00476BCA /* FizzBuzzFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9D994E02BF21B5B00476BCA /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,13 +74,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D99605972C0FF032005C2620 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D9D994A22BF217B100476BCA = {
 			isa = PBXGroup;
 			children = (
 				D9D994AD2BF217B100476BCA /* TcaSample */,
 				D9D994C02BF217B200476BCA /* TcaSampleTests */,
+				D91FA2102C146CD2006F5DBD /* FizzBuzzFeature */,
 				D9D994CA2BF217B200476BCA /* TcaSampleUITests */,
 				D9D994AC2BF217B100476BCA /* Products */,
+				D99605972C0FF032005C2620 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,8 +108,6 @@
 			children = (
 				D9D994AE2BF217B100476BCA /* TcaSampleApp.swift */,
 				D9D994B02BF217B100476BCA /* ContentView.swift */,
-				D9D994DB2BF219A500476BCA /* FizzBuzzView.swift */,
-				D9D994DD2BF21B1F00476BCA /* FizzBuzzFeature.swift */,
 				D9D994B22BF217B100476BCA /* Item.swift */,
 				D9D994B42BF217B200476BCA /* Assets.xcassets */,
 				D9D994B62BF217B200476BCA /* Preview Content */,
@@ -131,9 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				D9D994C12BF217B200476BCA /* TcaSampleTests.swift */,
-				D90FF5A82BF21D6100E4A076 /* FizzBuzzFeatureNormalTests.swift */,
-				D90FF5B82BF27BCF00E4A076 /* FizzBuzzFeatureSpecTests.swift */,
-				D90FF5AC2BF261ED00E4A076 /* TestExtension.swift */,
 			);
 			path = TcaSampleTests;
 			sourceTree = "<group>";
@@ -164,7 +157,6 @@
 			);
 			name = TcaSample;
 			packageProductDependencies = (
-				D9D994DF2BF21B5B00476BCA /* ComposableArchitecture */,
 			);
 			productName = TcaSample;
 			productReference = D9D994AB2BF217B100476BCA /* TcaSample.app */;
@@ -241,8 +233,6 @@
 			);
 			mainGroup = D9D994A22BF217B100476BCA;
 			packageReferences = (
-				D9D994DA2BF2186000476BCA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				D90FF5AE2BF2680600E4A076 /* XCRemoteSwiftPackageReference "Cuckoo" */,
 			);
 			productRefGroup = D9D994AC2BF217B100476BCA /* Products */;
 			projectDirPath = "";
@@ -288,8 +278,6 @@
 			files = (
 				D9D994B12BF217B100476BCA /* ContentView.swift in Sources */,
 				D9D994B32BF217B100476BCA /* Item.swift in Sources */,
-				D9D994DC2BF219A500476BCA /* FizzBuzzView.swift in Sources */,
-				D9D994DE2BF21B1F00476BCA /* FizzBuzzFeature.swift in Sources */,
 				D9D994AF2BF217B100476BCA /* TcaSampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,9 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D90FF5A92BF21D6100E4A076 /* FizzBuzzFeatureNormalTests.swift in Sources */,
-				D90FF5B92BF27BCF00E4A076 /* FizzBuzzFeatureSpecTests.swift in Sources */,
-				D90FF5AD2BF261ED00E4A076 /* TestExtension.swift in Sources */,
 				D9D994C22BF217B200476BCA /* TcaSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,33 +610,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D90FF5AE2BF2680600E4A076 /* XCRemoteSwiftPackageReference "Cuckoo" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Brightify/Cuckoo.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.2;
-			};
-		};
-		D9D994DA2BF2186000476BCA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D9D994DF2BF21B5B00476BCA /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9D994DA2BF2186000476BCA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D9D994A32BF217B100476BCA /* Project object */;
 }

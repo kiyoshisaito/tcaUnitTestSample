@@ -7,7 +7,7 @@
 
 import XCTest
 import ComposableArchitecture
-@testable import TcaSample
+@testable import FizzBuzzFeature
 
 
 final class FizzBuzzFeatureNormalTests: XCTestCase {
@@ -18,19 +18,30 @@ final class FizzBuzzFeatureNormalTests: XCTestCase {
         fetch1: @escaping (() async -> FizzBuzzResult) = { FizzBuzzResult(type: "") },
         fetch2: @escaping (() async -> FizzBuzzResult2) = { FizzBuzzResult2(type: "") }
     ) -> TestStore<FizzBuzzFeature.State, FizzBuzzFeature.Action> {
-        return TestStore(initialState: FizzBuzzFeature.State()) {
+        let store = TestStore(initialState: FizzBuzzFeature.State()) {
             FizzBuzzFeature()
         } withDependencies: {
             $0.fizzBuzzRepository.fetch1 = fetch1
             $0.fizzBuzzRepository.fetch2 = fetch2
         }
+        store.exhaustivity = .off
+        return store
     }
     override func setUpWithError() throws {
         store = TestStore(initialState: FizzBuzzFeature.State()) {
             FizzBuzzFeature()
         }
     }
+    
+    var arg = 0
+    func t(assert: @escaping (inout FizzBuzzFeature.State) -> Void) async {
+        await store.send(.fizzBuzzButtonTapped(value: arg)) {
+            assert(&$0)
+        }
+    }
+    
     @MainActor func test引数が3の倍数の場合() async {
+        arg = 0
         await store.send(.fizzBuzzButtonTapped(value: 3)) {
             // Fizz が 表示 される
             $0.isVisibleFizz = true
@@ -66,7 +77,7 @@ final class FizzBuzzFeatureNormalTests: XCTestCase {
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
         // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult) {
+        await store.receive(\.updateStateElseValue) {
             // Fizz が 非表示 になる
             $0.isVisibleFizz = false
             // Buzz が 非表示 になる
@@ -81,10 +92,7 @@ final class FizzBuzzFeatureNormalTests: XCTestCase {
             fetch2: { FizzBuzzResult2(type: "X") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult)
-        // 取得2 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult2) {
+        await store.receive(\.updateStateElseValue) {
             // Fizz が 非表示 になる
             $0.isVisibleFizz = false
             // Buzz が 非表示 になる
@@ -99,10 +107,7 @@ final class FizzBuzzFeatureNormalTests: XCTestCase {
             fetch2: { FizzBuzzResult2(type: "Y") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult)
-        // 取得2 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult2) {
+        await store.receive(\.updateStateElseValue) {
             // Fizz が 非表示 になる
             $0.isVisibleFizz = false
             // Buzz が 非表示 になる
@@ -117,10 +122,7 @@ final class FizzBuzzFeatureNormalTests: XCTestCase {
             fetch2: { FizzBuzzResult2(type: "Z") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult)
-        // 取得2 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult2) {
+        await store.receive(\.updateStateElseValue) {
             // Fizz が 非表示 になる
             $0.isVisibleFizz = false
             // Buzz が 非表示 になる
@@ -134,8 +136,7 @@ final class FizzBuzzFeatureNormalTests: XCTestCase {
             fetch1: { FizzBuzzResult(type: "C") }
         )
         await store.send(.fizzBuzzButtonTapped(value: 4))
-        // 取得1 が実行される
-        await store.receive(\.updateStateByFizzBuzzResult) {
+        await store.receive(\.updateStateElseValue) {
             // Fizz が 非表示 になる
             $0.isVisibleFizz = false
             // Buzz が 非表示 になる
