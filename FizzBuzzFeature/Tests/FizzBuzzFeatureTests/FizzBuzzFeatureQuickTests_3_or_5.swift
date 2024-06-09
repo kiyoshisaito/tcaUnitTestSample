@@ -10,6 +10,8 @@ import Nimble
 import ComposableArchitecture
 @testable import FizzBuzzFeature
 
+// TCAのテストフレームワーク＋Quickで日本語の仕様を表現。
+// アウトラインがわかりにくくなるので、3と5の倍数の仕様だけファイル分割している。
 
 final class FizzBuzzFeatureQuickTests_3_or_5: AsyncSpec {
     
