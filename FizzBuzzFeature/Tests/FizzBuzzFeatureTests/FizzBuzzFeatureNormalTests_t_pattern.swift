@@ -73,19 +73,19 @@ final class FizzBuzzFeatureNormalTests_t_pattern: XCTestCase {
             assert(&$0)
         }
     }
-    @MainActor func test引数が3の倍数でも5の倍数でもない_Fizzが非表示() async {
+    @MainActor func test_引数が3の倍数でも5の倍数でもない_Fizzが非表示() async {
         store = createStore(
             fetch1: { FizzBuzzResult(type: "A") }
         )
         await t2(arg: 4) { $0.isVisibleFizz = false }
     }
-    @MainActor func test引数が3の倍数でも5の倍数でもない_Buzzが非表示() async {
+    @MainActor func test_引数が3の倍数でも5の倍数でもない_Buzzが非表示() async {
         store = createStore(
             fetch1: { FizzBuzzResult(type: "A") }
         )
         await t2(arg: 4) { $0.isVisibleBuzz = false }
     }
-    @MainActor func test引数が3の倍数でも5の倍数でもない_取得結果1のタイプがAの場合_その他がAAで表示() async {
+    @MainActor func test_引数が3の倍数でも5の倍数でもない_取得結果1のタイプがAの場合_その他がAAで表示() async {
         store = createStore(
             fetch1: { FizzBuzzResult(type: "A") }
         )
