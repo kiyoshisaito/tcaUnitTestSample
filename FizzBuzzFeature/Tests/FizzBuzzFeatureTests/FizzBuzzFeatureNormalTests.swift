@@ -9,6 +9,7 @@ import XCTest
 import ComposableArchitecture
 @testable import FizzBuzzFeature
 
+// TCAのテストフレームワーク＋XCTestCaseで日本語の仕様をコメントとメソッド名で表現
 
 final class FizzBuzzFeatureNormalTests: XCTestCase {
     private var store = TestStore(initialState: FizzBuzzFeature.State()) {
