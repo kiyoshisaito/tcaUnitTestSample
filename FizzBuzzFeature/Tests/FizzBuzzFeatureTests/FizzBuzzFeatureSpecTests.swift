@@ -9,6 +9,8 @@ import XCTest
 import ComposableArchitecture
 @testable import FizzBuzzFeature
 
+// TCAのテストフレームワーク＋XCTestCaseで日本語の仕様を文字列とメソッド名で表現。
+// 文字列箇所はただの文字列のため、Xcodeのテストビューには反映されないが、コメントよりは見やすいかと思いそのように。
 
 final class FizzBuzzFeatureSpecTests: XCTestCase {
     private var store = TestStore(initialState: FizzBuzzFeature.State()) {
